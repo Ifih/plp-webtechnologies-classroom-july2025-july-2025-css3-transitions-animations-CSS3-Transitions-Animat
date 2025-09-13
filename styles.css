@@ -1,0 +1,190 @@
+        /* General Styling */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #001529;
+            margin: 0;
+            padding: 1rem;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(to right, #38bdf8, #3b82f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        header p {
+            color: #f08000;
+            margin-top: 0.5rem;
+        }
+
+        section {
+            background-color: #02af7b;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e5ff00;
+            padding-bottom: 0.5rem;
+        }
+
+        p {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .content-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        /* Make grid 2 columns on wider screens */
+        @media (min-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background-color: #d5f1a7;
+            padding: 1rem;
+            border-radius: 0.25rem;
+        }
+
+        .card h3 {
+            font-weight: 600;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            font-size: 0.875rem;
+            color: #585b61;
+            margin-bottom: 0.5rem;
+        }
+        
+        .input-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        input[type="number"] {
+            width: 100%;
+            background-color: #d2def8;
+            border-radius: 0.25rem;
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px solid #4b5563;
+            color: rgb(0, 0, 0);
+        }
+
+        .result-text {
+            margin-top: 0.75rem;
+            text-align: center;
+        }
+        
+        .result-value {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #035358;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+
+        /* CSS3 Transitions and Animations */
+        .magic-button {
+            background-color: #f59e0b;
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .magic-button:hover {
+            background-color: #d68102;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.3);
+        }
+
+        .pulsing-car {
+            font-size: 3rem;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+        }
+
+        /* Combining CSS and JS - Animation Classes */
+        .car {
+            position: absolute;
+            top: 50%;
+            right: 0; /* start at the right edge */
+            font-size: 3rem;
+            opacity: 0; 
+            transform: translateX(0) translateY(-50%); /* Start off-screen to the right, then move to the left */
+        }
+
+        @keyframes drive-across {
+            0% {
+                opacity: 1;
+                transform: translateX(0) translateY(-50%); /* start just at the right edge (visible area), then move leftward */
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(-100vw) translateY(-50%); /* end at the left edge of the viewport */
+            }
+        }
+        
+        .car.is-driving {
+           animation: drive-across 7s linear forwards;
+        }
